@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>メッセージボード</title>
+  <body>
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <b>名前:</b>
+      <%= @table.name %>
+    </p>
+
+    <p>
+      <b>メッセージ:</b>
+      <%= @table.mess %>
+    </p>
+
+
+    <%= link_to '編集', edit_table_path(@table) %> |
+    <%= link_to '戻る', tables_path %>
+  </body>
+</html>

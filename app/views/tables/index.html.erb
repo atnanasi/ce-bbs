@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>メッセージボード</title>
+  <body>
+
+    <h1>メッセージボード</h1>
+
+    <hr>
+
+    <table>
+      <tr>
+        <th>名前</th>
+        <th>メッセージ</th>
+        <th>修正時間</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @tables.each do |table| %>
+      <tr>
+        <td><%= table.name %></td>
+        <td><%= table.mess %></td>
+        <td><%= table.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td><%= link_to '詳細', table %></td>
+        <td><%= link_to '編集', edit_table_path(table) %></td>
+        <td><%= link_to '削除', table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
+
+    <br />
+
+    <hr>
+
+    <%= link_to '新規メッセージ', new_table_path %>
+  </body>
+</html>
